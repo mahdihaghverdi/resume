@@ -3,6 +3,25 @@
 \usepackage{multicol}
 \usepackage[utf8]{inputenc}
 
+% colorbox --------------------------------------------------
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\newcommand{\colourbox}[2]{
+    \tcbox[on line, 
+	 		boxsep=4pt, 
+	 		left=0pt,
+	 		right=0pt,
+	 		top=0pt,
+	 		bottom=-1pt,
+	 		colframe=white,
+	 		colback={#1},  
+	 		size=small
+	]{#2}
+}
+%------------------------------------------------------------
+\definecolor{highlight}{RGB}{68, 2, 191}
+\newcommand{\skill}[1]{{\small\colourbox{highlight}{\textcolor{white}{#1}}}}
 %====================
 % OFFICIAL PUBLIC OVERLEAF TEMPLATE
 % https://www.overleaf.com/latex/templates/data-science-tech-resume-template/zcdmpfxrzjhv
