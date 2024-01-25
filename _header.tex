@@ -5,15 +5,18 @@
 \RequirePackage{fancyhdr}
 \fancypagestyle{fancy}{%
 \fancyhf{}
-\lhead{\phone \\ % PHONE    
-        \city \\ % city
-	    \href{mailto:\email}{\email}} % EMAIL}
-	\chead{%
-	    \centering {\Huge \skills \name \vspace{.15em}} \\ % feel free to adjust vspace to 0 
-	    {\color{highlight} \Large{\role}}}%
-	    \rhead{
-	    \href{https://github.com/\github}{github.com/\github}} 
-\renewcommand{\headrulewidth}{1pt}% 2pt header rule
+\lhead{
+    \phone \\
+    \city \\
+    \href{mailto:\email}{\email}}
+    \chead{
+        \centering {\Huge \skills \name \vspace{.15em}} \\
+        {\color{highlight} \Large{\role}}}
+        \rhead{
+            \href{https://github.com/\github}{github.com/\github}
+        } 
+
+\renewcommand{\headrulewidth}{1pt}
 \renewcommand{\headrule}{\hbox to\headwidth{%
   \color{highlight}\leaders\hrule height \headrulewidth\hfill}}
 }
