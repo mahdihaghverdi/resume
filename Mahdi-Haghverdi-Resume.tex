@@ -1,0 +1,153 @@
+\documentclass[10pt, dvipsnames, svgnames, x11names]{article}
+
+% URLs and hyperlinks ------------------------------
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=DarkBlue,
+    filecolor=magenta,
+    urlcolor=DarkBlue,
+}
+\usepackage{xurl}
+%---------------------------------------------------
+
+\usepackage[top=1cm, bottom=1cm, right=1.8cm, left=1.8cm]{geometry}
+
+\usepackage{enumitem}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\setmainfont{Calibri}
+\pagestyle{empty}
+
+\begin{document}
+\setlength{\baselineskip}{11pt}
+\noindent{\Huge \textbf{Mahdi Haghverdi}}
+\vspace{1mm}
+
+\noindent{\large \textbf{Software Engineer | Cloud Native \& DevOps Enthusiast}} \vspace{0.8mm}
+
+\noindent{+989136028987 | \href{mailto:mahdihaghverdiliewpl@gmail.com}{mahdihaghverdiliewpl@gmail.com} | \href{https://linkedin.com/in/mahdi-haghverdi-a5768922b}{linkedin.com/in/mahdi-haghverdi-a5768922b}}
+\vspace{0.8mm}
+
+\noindent Software Engineer with 2 years of professional experience building production backend systems and microservices, backed by over 6 years of Python programming, self-directed learning, and personal projects. Experienced in observability, distributed tracing, containerized deployments, CI/CD, and event-driven architectures. Currently expanding expertise in Kubernetes and cloud-native infrastructure while focusing on reliability, automation, and developer productivity.
+
+\noindent\textcolor{DarkBlue}{\rule{\textwidth}{0.05mm}} \vspace{-1mm} \\
+{\LARGE \textbf{SKILLS}}
+
+\begin{itemize}[nosep]
+\item \textbf{Tools and Technologies}
+\begin{itemize}[nosep]
+\item \textbf{Backend}: Python, FastAPI, FastStream, Redis, Redis Streams, Pydantic, PydanticAI, SQLAlchemy
+
+\item \textbf{Observability}: OpenTelemetry, Grafana, Grafana Alloy, Grafana Tempo, FluentBit, VictoriaMetrics, VictoriaLogs,  LogFire, StructLog
+
+\item \textbf{Architecture}: Microservices, REST APIs, Event-driven Architecture, System Design
+
+\item \textbf{DevOps \& Cloud}: Docker, Docker Compose, Kubernetes (learning), OpenStack (learning)
+\end{itemize}
+
+\item \textbf{Methodologies and Industry Knowledge}: Agile, Scrum, System Design, Microservices
+\item \textbf{Soft Skills}: Problem Solving, Communication, Collaboration, Adaptability, Ownership, Continuous Learning
+\end{itemize}
+
+\noindent\textcolor{DarkBlue}{\rule{\textwidth}{0.05mm}} \vspace{-1mm} \\
+{\LARGE \textbf{EXPERIENCE}}
+
+\noindent \textbf{Software Developer | Jast, Health Technology Co.} \hfill \textbf{Jun 2024 - PRESENT} \\
+\noindent \textbf{Part-time | Remote}
+
+\begin{itemize}[nosep]
+\item \textbf{Monitoring \& Logging}:
+\begin{itemize}[nosep]
+\item
+Implemented cloud-native structured logging across all services using Python Logging and Structlog.
+
+\item
+Separated dev and production log formats to improve local debugging while preserving machine-readable production logs.
+
+\item
+Configured Fluent Bit sidecar containers to forward structured logs to VictoriaLogs.
+
+\item 
+Integrated Logfire and Grafana Alloy to collect distributed traces across microservices.
+
+\item 
+Implemented distributed tracing across production microservices, reducing incident investigation time by approximately 80\%.
+
+\item 
+Configured Grafana Tempo as the distributed trace backend.
+
+\item 
+Collected application metrics using Logfire and Grafana Alloy.
+
+\item 
+Implemented custom metrics for various business requirements.
+
+\item 
+Designed operational dashboards enabling developers to identify failures and performance bottlenecks in real time.
+\end{itemize}
+
+\item \textbf{Microservices}:
+\begin{itemize}[nosep]
+\item 
+Built an event-driven Web-Push API notification service and real-time in-app user notifications.
+
+\item 
+Developed an event-driven service for email and SMS delivery.
+
+\item 
+Implemented an image processing service for compression, resizing, cropping, and video thumbnail generation.
+
+\item Reduced image size by 50\% to 90\%.
+
+\item 
+Built a real-time chat service enabling communication between trainers and trainees.
+\end{itemize}
+
+\item \textbf{Technical Work}:
+\begin{itemize}[nosep]
+\item 
+Introduced a service layer architecture to separate business logic from API and persistence layers.
+
+\item 
+Set up unit and integration tests using Pytest.
+
+\item 
+Designed and developed new Pydantic schemas for the REST APIs to be more concise and accurate in terms of validation and API documentation.
+
+\item 
+Migrated SQLAlchemy models to the 2.0 declarative syntax with full type annotations.
+
+\item 
+Developed a new Exception hierarchy for better error handling and logging.
+
+\item 
+Introduced domain-specific error codes for consistent API error handling.
+
+\item Improved API usability by introducing standardized error codes and documenting them in OpenAPI (Swagger).
+\end{itemize}
+
+\item \textbf{CI/CD}:
+\begin{itemize}[nosep]
+\item Built GitHub Actions workflows for automated testing and validation.
+\end{itemize}
+\end{itemize}
+%\noindent\textcolor{DarkBlue}{\rule{\textwidth}{0.05mm}} \vspace{-1mm} \\
+%{\LARGE \textbf{PROJECTS}} \\
+
+\noindent\textcolor{DarkBlue}{\rule{\textwidth}{0.05mm}} \vspace{-1mm} \\
+{\LARGE \textbf{EDUCATION}}
+
+\noindent \textbf{Bachelor of Engineering, Computer Engineering | University of Isfahan} \hfill \textbf{2021-2025}
+
+\noindent \textbf{Thesis: Design and Implementation of a POSIX-Compatible Filesystem for Direct S3-Based Storage Access} \hfill \textbf{Grade: 19/20} \\
+Project: \href{https://github.com/mahdihaghverdi/pys3fuse}{https://github.com/mahdihaghverdi/pys3fuse}
+\begin{itemize}[nosep]
+\item Developed transparent FUSE filesystem layer to access S3-based storages with pure POSIX commands (ls, cd, mkdir, ...)
+\item Implemented a fully type-safe codebase with comprehensive type annotations.
+\item Implemented comprehensive unit tests using Pytest.
+\item Implemented concurrent background operations using multithreading and non-blocking design patterns.
+\end{itemize}
+\end{document}
