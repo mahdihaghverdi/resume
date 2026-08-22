@@ -1,0 +1,336 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Mahdi Haghverdi's CV},
+    pdfauthor={Mahdi Haghverdi},
+    pdfcreator={LaTeX with XeLaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\renewcommand{\today}{\ifcase \month \or Jan\or Feb\or Mar\or Apr\or May%
+\or Jun\or Jul\or Aug\or Sep\or Oct\or Nov\or Dec\fi, %
+\number \year} 
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0cm}
+\makeatletter
+\let\ps@customFooterStyle\ps@plain
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Mahdi Haghverdi - Page \thepage{} of \pageref*{LastPage}}
+}{}{}
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+\renewcommand\labelitemi{$\circ$}
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm + 0.00001 cm}{0.2 cm + 0.00001 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{%
+  \AddToShipoutPictureFG*{%
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in \today}\hspace{\widthof{Last updated in \today}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+\begin{document}
+\newcommand{\AND}{\unskip
+\cleaders\copy\ANDbox\hskip\wd\ANDbox
+\ignorespaces
+}
+\newsavebox\ANDbox
+\sbox\ANDbox{}
+
+\placelastupdatedtext
+
+% =========================
+% Header (ported)
+% =========================
+\begin{header}
+\textbf{\fontsize{24 pt}{24 pt}\selectfont Mahdi Haghverdi}
+
+\vspace{0.2 cm}
+
+\normalsize
+\mbox{Phone: \href{tel:+98913028987}{+98 913 602 8987}} \\
+\mbox{Email: \href{mailto:mahdihaghverdiliewpl@gmail.com}{mahdihaghverdiliewpl@gmail.com}} \\
+\mbox{LinkedIn: \href{https://linkedin.com/in/mahdi-haghverdi-a5768922b}{mahdi-haghverdi}} \\
+\mbox{Website: \href{https://mahdihaghverdi.github.io}{mahdihaghverdi.github.io}}
+\end{header}
+
+%\vspace{0.1 cm}
+
+% =========================
+% Summary -> Profile
+% =========================
+\section{Profile}
+\begin{onecolentry}
+Software Engineer with 2 years of professional experience building production backend systems and microservices, backed by over 6 years
+of Python programming, self‐directed learning, and personal projects. Experienced in observability, distributed tracing, containerized
+deployments, CI/CD, and event‐driven architectures. Currently expanding expertise in Kubernetes and cloud‐native infrastructure while
+focusing on reliability, automation, and developer productivity.
+\end{onecolentry}
+
+% =========================
+% Skills
+% =========================
+\section{Skills}
+\begin{onecolentry}
+\begin{highlightsforbulletentries}
+\item
+\textbf{Backend}: Python, FastAPI, FastStream, Redis, Redis Streams, Pydantic, PydanticAI, SQLAlchemy
+
+\item
+\textbf{Observability}: OpenTelemetry, Grafana, Grafana Alloy, Grafana Tempo, FluentBit, VictoriaMetrics, VictoriaLogs,  LogFire, StructLog, Jeager
+
+\item
+\textbf{DevOps \& Cloud}: Docker, Docker Compose, Kubernetes (learning), OpenStack (learning)
+
+\item
+\textbf{Architecture}: Microservices, REST APIs, Event-driven Architecture, System Design
+
+\item
+\textbf{CI/CD:} Design, Test, Deploy, and Production with GitHub
+
+\item
+\textbf{Soft Skills:} Communication, Curiousity, Teamwork, Collaboration, Problem-solving, and Public speaking
+\end{highlightsforbulletentries}
+\end{onecolentry}
+
+% =========================
+% Experience
+% =========================
+\section{Professional Experience}
+
+\begin{twocolentry}{
+\textit{Tehran, Iran} \\
+\textit{Jun 2024 -- Dec 2025}}
+    \textbf{Site Reliability Engineer} \\
+    \textit{\href{https://jast.fit/}{Jast}}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+\textbf{Description:} JAST is a dynamic company focused on improving lifestyles through exercise and nutrition. Derived from the ancient Persian language, JAST represents the concepts of jump, mutation, and leap, symbolizing our commitment to dynamism and improvement. We offer personalized workout programs and nutrition plans that guide people toward their health and wellness goals. Join our vibrant community and experience the transformative power of JAST as we help you reach new heights in fitness and vitality.
+\begin{highlights}
+\item
+Designed and implemented a production-grade observability stack across microservices, combining structured logging, distributed tracing, metrics, and operational dashboards with Structlog, Fluent Bit, VictoriaLogs, Logfire, Grafana Alloy, and Grafana Tempo.
+
+\item
+Built real-time observability and incident diagnostics for production services, enabling developers to identify failures and performance bottlenecks and reducing incident investigation time by approximately 80\%.
+
+\item
+Architected event-driven communication services supporting Web Push, real-time in-app notifications, email, and SMS delivery, enabling asynchronous and decoupled user-facing workflows.
+
+\item
+Developed a high-performance media processing service for image compression, resizing, cropping, and video thumbnail generation, reducing image payload sizes by 60\%--80\%. Whole processing, storing and returning the status between services took just 1 to 3 seconds for relatively large images.
+
+\item
+Built a real-time chat service for trainer--trainee communication and introduced a layered service architecture to decouple business logic from API and persistence layers across backend services.
+
+\item
+Modernized over the 70\% of the backend API and data layer code base with typed SQLAlchemy 2.0 models, redesigned Pydantic schemas, standardized domain-specific error handling, and comprehensive unit and integration testing with Pytest, improving API consistency, validation, and OpenAPI documentation.
+
+\end{highlights}
+\end{onecolentry}
+
+\newpage
+% =========================
+% Projects
+% =========================
+\section{Projects}
+
+\begin{twocolentry}{
+\textit{Kubernetes, Operators} \\
+\textit{}}
+    \textbf{ConfigBundleOperator} \\
+    \textit{\href{https://mahdihaghverdi.github.io/k8s-operators-docs/ConfigBundleOperator/}{k8s-operators-docs/ConfigBundleOperator}}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+\textbf{Description:} 
+A Python/Kopf-based Kubernetes Operator for managing application configuration through a Kubernetes-native \texttt{ConfigBundle} API. Implemented a reconciliation-based control loop that creates and updates managed \texttt{ConfigMap}s, synchronizes labels and annotations, detects configuration drift, and automatically self-heals missing or modified \texttt{ConfigMap}s using Kubernetes owner references and continuous daemon-based reconciliation.
+
+\begin{highlights}
+\item
+Designed and implemented a Kubernetes operator, introducing a declarative \texttt{ConfigBundle} CRD to manage and continuously reconcile application configuration as Kubernetes-native resources.
+
+\item
+Engineered a self-healing reconciliation mechanism following the Observe--Evaluate--Act pattern, continuously detecting configuration drift and automatically restoring the desired state when managed \texttt{ConfigMap} resources are modified or deleted.
+
+\item
+Implemented Kubernetes-native lifecycle and security management using Owner References and garbage collection for dependent resources, alongside RBAC policies supporting both namespace-scoped and cluster-wide deployments.
+
+\item
+Built an automated cross-repository documentation CI/CD pipeline with GitHub Actions and repository-dispatch triggers, dynamically integrating source repositories and generating versioned project documentation with Zensical.
+
+\end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{
+\textit{FUSE, Filesystem, S3} \\
+\textit{}}
+    \textbf{pys3fuse} \\
+    \textit{\href{https://mahdihaghverdi.github.io/repos/python/\#pys3fuse}{pys3fuse}}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+\textbf{Description:} A Python-based FUSE filesystem that exposes S3 buckets as POSIX-compatible filesystems, with bidirectional synchronization, metadata preservation, and concurrent S3 transfers.
+
+\begin{highlights}
+\item
+Designed and implemented a POSIX-compatible filesystem over S3 using FUSE and Python, exposing remote S3 objects through standard filesystem operations.
+
+\item
+Engineered bidirectional synchronization between local filesystems and S3, with concurrent change detection, conflict handling, deletion propagation, and POSIX metadata preservation.
+
+\item
+Implemented concurrent and configurable S3 transfers using \texttt{ThreadPoolExecutor} and \texttt{boto3} multipart uploads, supporting efficient synchronization of large files and multi-user environments.
+
+\end{highlights}
+\end{onecolentry}
+
+% =========================
+% Articles
+% =========================
+\section{Articles}
+
+\begin{twocolentry}{
+\textit{Algorithm, CPython} \\ }
+    \textbf{Timsort Algorithm} \\
+    \textit{\href{https://virgool.io/@liewpl/timsort-algorithm-u41h0wv0jnax}{timsort-algorithm}}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+\textbf{Description:} A technical deep dive into Timsort, covering its adaptive sorting strategy, run detection, merging mechanism, and CPython implementation details.
+
+\begin{highlights}
+\item
+Deep-dived into Timsort's adaptive stable merge-sort architecture, analyzing its hybrid use of Binary Insertion Sort for small runs and Merge Sort for large-scale merging.
+
+\item
+Analyzed natural run detection and \texttt{minrun} computation, demonstrating how Timsort exploits partially ordered data to reduce merge operations and improve practical sorting performance.
+
+\item
+Studied the CPython implementation of Timsort and its performance characteristics, including comparison costs, memory usage, cache locality, and merge-tree optimization.
+
+\end{highlights}
+\end{onecolentry}
+
+% =========================
+% Education
+% =========================
+\section{Education}
+
+\begin{twocolentry}{
+\textit{Isfahan, Iran} \\
+\textit{2021 -- 2025}}
+    \textbf{Bachlors of Computer Engineering} \\
+    \textit{University Of Isfahan}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Grade: 17.44/20
+        \item USA GPA: 3.48/4
+        \item Thesis: Implemented transparent FUSE filesystem layer to access S3-based storages with pure POSIX commands (ls, cd, mkdir, ...)
+    \end{highlights}
+\end{onecolentry}
+
+\end{document}
